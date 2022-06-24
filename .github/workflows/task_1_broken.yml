@@ -6,6 +6,7 @@ on:
       - main
 
 jobs:
+  runs-on: ubuntu-latest
   task1:
     name: Task 1 - Fix the broken workflow
     defaults:
