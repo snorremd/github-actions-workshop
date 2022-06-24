@@ -1,0 +1,27 @@
+name: 'Chuck Norris'
+description: 'Fetches and posts chuck norris quote'
+inputs:
+  access-code:  # id of input
+    description: 'Access code to post to chuck alex api'
+    required: true
+    default: ''
+runs:
+  using: "composite"
+  steps:
+    - name: Fetch quote
+      uses: fjogeleit/http-request-action@v1
+      id: getQuoteResponse
+      with:
+        url: 'https://api.chucknorris.io/jokes/random'
+        method: 'GET'
+    - name: Show Response
+      id: quote
+      run: |
+        echo "::set-output name=QUOTE::${{ fromJson(steps.getQuoteResponse.outputs.response).value }}"
+    - name: Post quote
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: 'https://chuck.alexc.no/api/quote'
+        method: 'POST'
+        customHeaders: '{"Content-Type": "application/json"}'
+        data: '{ "quote": "${{ steps.quote.outputs.QUOTE }}", "accessCode": "${{ inputs.access-code }}" }'

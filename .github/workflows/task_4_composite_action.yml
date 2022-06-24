@@ -1,0 +1,16 @@
+name: Task 4 - Composite action Chuck Norris Quote    
+
+# On workflow dispatch
+on:
+  workflow_dispatch:
+# Jobs
+secrets.ACCESSCODE 
+jobs:
+  fetch-quote:
+    name: Fetch quote
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch quote
+        uses: ./.github/actions/chuck_norris.yml
+        with:
+          access-code: '${{ secrets.ACCESSCODE }}'
