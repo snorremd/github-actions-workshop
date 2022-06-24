@@ -16,6 +16,7 @@ runs:
         method: 'GET'
     - name: Show Response
       id: quote
+      shell: bash
       run: |
         echo "::set-output name=QUOTE::${{ fromJson(steps.getQuoteResponse.outputs.response).value }}"
     - name: Post quote
