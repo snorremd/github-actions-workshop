@@ -1,0 +1,27 @@
+name: Task 5 - Issue comment event  
+
+# On workflow dispatch
+on:
+  issue_comment:
+    types: [created]
+# Jobs
+
+jobs:
+  issue_commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on issue $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+    steps:
+      - name: Post quote
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://chuck.alexc.no/api/quote'
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{ "quote": "${{ github.event.issue.comment }}", "accessCode": "${{ secrets.ACCESSCODE }}" }'
