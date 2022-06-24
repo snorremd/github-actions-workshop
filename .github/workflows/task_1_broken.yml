@@ -5,7 +5,7 @@ jobs:
     name: Task 1 - Fix the broken workflow
     defaults:
       run:
-        working-directory: ./copy-pasta-app
+        working-directory: ./example-app
     steps:
       - name: Setup node
         uses: actions/setup-node@v3
@@ -13,6 +13,6 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npm run lint
-      - run: npx playwright install
+      - run: npx playwright
       - run: npm test
       - run: npm run build
