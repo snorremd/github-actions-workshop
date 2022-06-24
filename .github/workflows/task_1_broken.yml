@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: example-app
+        working-directory: ./example-app
     steps:
-      - run: actions/checkout@v3
-        working-directory: .
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Setup node
         uses: actions/setup-node@v3
         with:
