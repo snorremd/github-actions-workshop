@@ -4,7 +4,6 @@ name: Task 4 - Composite action Chuck Norris Quote
 on:
   workflow_dispatch:
 # Jobs
-secrets.ACCESSCODE 
 jobs:
   fetch-quote:
     name: Fetch quote
