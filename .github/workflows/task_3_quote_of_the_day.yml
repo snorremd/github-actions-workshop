@@ -23,7 +23,7 @@ jobs:
       - name: Post quote
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://ansible.io/api/v2/job_templates/84/launch/'
+          url: 'https://chuck.alexc.no/api/quote'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
           data: '{ "quote": "${{ steps.quote.outputs.QUOTE }}", "accessCode": "${{ secrets.acessCode }}" }'
