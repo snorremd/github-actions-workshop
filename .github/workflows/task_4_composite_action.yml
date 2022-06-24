@@ -12,6 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Fetch quote
-        uses: ./.github/actions/chuck_norris.yml
+        uses: ./.github/actions/chuck-norris
         with:
           access-code: '${{ secrets.ACCESSCODE }}'
