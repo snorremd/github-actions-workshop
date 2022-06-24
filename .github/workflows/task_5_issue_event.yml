@@ -23,4 +23,4 @@ jobs:
           url: 'https://chuck.alexc.no/api/quote'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{ "quote": "${{ github.event.issue.comment }}", "accessCode": "${{ secrets.ACCESSCODE }}" }'
+          data: '{ "quote": "${{ github.event.comment.body }}", "accessCode": "${{ secrets.ACCESSCODE }}" }'
