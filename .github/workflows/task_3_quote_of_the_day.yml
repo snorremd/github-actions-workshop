@@ -1,4 +1,4 @@
-name: Task 1 - Fix the broken workflow      
+name: Task 3 - Chuck Norris Quote    
 
 # On workflow dispatch
 on:
