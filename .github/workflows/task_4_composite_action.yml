@@ -9,6 +9,8 @@ jobs:
     name: Fetch quote
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Fetch quote
         uses: ./.github/actions/chuck_norris.yml
         with:
