@@ -17,7 +17,6 @@ jobs:
           echo A comment on issue $NUMBER
         env:
           NUMBER: ${{ github.event.issue.number }}
-    steps:
       - name: Post quote
         uses: fjogeleit/http-request-action@v1
         with:
